@@ -26,7 +26,7 @@ class WelcomeActivity : AppCompatActivity() {
                 LoginActivity::class.java
             )
             startActivity(intent)
-            finish()
+
         }
         welcomeBinding.registerButtonWelcome.setOnClickListener {
             val intent = Intent(
@@ -34,24 +34,16 @@ class WelcomeActivity : AppCompatActivity() {
                 RegisterActivity::class.java
             )
             startActivity(intent)
-            finish()
+
         }
     }
     override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser != null) {
             val intent = Intent(
                 this,
                 MainActivity::class.java
-            )
-            startActivity(intent)
-            finish()
-        }else{
-            val intent = Intent(
-                this,
-                LoginActivity::class.java
             )
             startActivity(intent)
             finish()

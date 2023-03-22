@@ -10,10 +10,12 @@
         android:id="@+id/welcome_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to FirebaseAuth App"
-        android:textSize="30sp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
+        android:text="Welcome to FirebaseAuth App"
+        android:textColor="#131313"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/login_button_welcome"

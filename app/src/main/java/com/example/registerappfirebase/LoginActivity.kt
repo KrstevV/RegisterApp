@@ -44,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
                             this,
                             MainActivity::class.java
                         )
-                        intent.putExtra("email", user?.email)
                         startActivity(intent)
                     } else {
                         Toast.makeText(

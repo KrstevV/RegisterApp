@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        var currentEmail = intent.getStringExtra("email")
-        binding.textView.text = currentEmail
+
+        binding.textView.text = auth.currentUser?.email
 
         binding.button.setOnClickListener {
 

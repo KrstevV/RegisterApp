@@ -39,14 +39,12 @@ class RegisterActivity : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val user = auth.currentUser
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         Toast.makeText(
                             baseContext, "Account is sucessful created",
                             Toast.LENGTH_SHORT
                         ).show()
-
                     } else {
                         Toast.makeText(
                             baseContext, "Authentication failed.",
@@ -54,6 +52,7 @@ class RegisterActivity : AppCompatActivity() {
                         ).show()
 
                     }
+                    auth.signOut()
                 }
         } else {
             Toast.makeText(
