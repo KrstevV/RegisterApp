@@ -11,9 +11,9 @@ import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var auth : FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
-    lateinit var registerBinding : ActivityRegisterBinding
+    lateinit var registerBinding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,25 +33,33 @@ class RegisterActivity : AppCompatActivity() {
             registerUser(email, password)
         }
     }
+
     private fun registerUser(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    Toast.makeText(
-                        baseContext, "Account is sucessful created",
-                        Toast.LENGTH_SHORT
-                    ).show()
+        if (email.isNotEmpty() && password.isNotEmpty()) {
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                        Toast.makeText(
+                            baseContext, "Account is sucessful created",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
-                } else {
-                    Toast.makeText(
-                        baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    } else {
+                        Toast.makeText(
+                            baseContext, "Authentication failed.",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
+                    }
                 }
-            }
+        } else {
+            Toast.makeText(
+                baseContext, "Username or Password is empty.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 }

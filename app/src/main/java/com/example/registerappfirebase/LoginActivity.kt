@@ -34,21 +34,30 @@ class LoginActivity : AppCompatActivity() {
             loginUser(email, password)
         }
     }
-    private fun loginUser(email: String, password: String){
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    val intent = Intent(
-                        this,
-                        MainActivity::class.java
-                    )
-                    intent.putExtra("email", user?.email)
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(baseContext, "Username or Password is not correct.",
-                        Toast.LENGTH_SHORT).show()
+    private fun loginUser(email: String, password: String) {
+        if (email.isNotEmpty() && password.isNotEmpty()) {
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        val intent = Intent(
+                            this,
+                            MainActivity::class.java
+                        )
+                        intent.putExtra("email", user?.email)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(
+                            baseContext, "Username or Password is not correct.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
-            }
+        } else {
+            Toast.makeText(
+                baseContext, "Username or Password is empty.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 }

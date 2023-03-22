@@ -26,6 +26,7 @@ class WelcomeActivity : AppCompatActivity() {
                 LoginActivity::class.java
             )
             startActivity(intent)
+            finish()
         }
         welcomeBinding.registerButtonWelcome.setOnClickListener {
             val intent = Intent(
@@ -33,6 +34,7 @@ class WelcomeActivity : AppCompatActivity() {
                 RegisterActivity::class.java
             )
             startActivity(intent)
+            finish()
         }
     }
     override fun onStart() {
@@ -42,15 +44,17 @@ class WelcomeActivity : AppCompatActivity() {
         if (currentUser != null) {
             val intent = Intent(
                 this,
-                LoginActivity::class.java
+                MainActivity::class.java
             )
             startActivity(intent)
+            finish()
         }else{
             val intent = Intent(
                 this,
-                WelcomeActivity::class.java
+                LoginActivity::class.java
             )
             startActivity(intent)
+            finish()
         }
     }
 }
