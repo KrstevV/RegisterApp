@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "891260234263",
+    "project_id": "registerappfirebase",
+    "storage_bucket": "registerappfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891260234263:android:97af68f6befe45135a0a52",
+        "android_client_info": {
+          "package_name": "com.example.registerappfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891260234263-f6i4g3bf9asnhuoukkh4hlvhegloghma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtKdPzogDvQOSed2plQrCQ23O87RqW72s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891260234263-f6i4g3bf9asnhuoukkh4hlvhegloghma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
